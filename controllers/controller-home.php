@@ -1,8 +1,4 @@
-<?php 
-
-require "../models/data.php";
-
+<?php
 
 include "../views/home.php";
-
 ?>
