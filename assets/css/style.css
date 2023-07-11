@@ -74,9 +74,10 @@ ul {
 }
 .footer-section {
   background: #151414;
-  position: relative;
+  position: fixed;
   width: 100vw;
   bottom: 0;
+  left: 0;
 }
 
 .copyright-area{
@@ -108,6 +109,61 @@ ul {
     position: sticky;
     bottom: 0;
 }
+
+
+.contenu-admin{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+
+}
+
+.contenu-admin ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.contenu-admin ul li{
+   margin: 0 1rem;
+}
+
+ol, ul {
+    padding-left: 0 !important;
+}
+
+.espece{
+  font-weight: 900;
+  font-size: 4rem;
+  color: #ff5e14;
+}
+
+.race{
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
 /* This pen */

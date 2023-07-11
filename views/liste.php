@@ -25,7 +25,7 @@ if (isset($_GET['delete_id'])) {
     $deleteStatement->execute();
 
     // Rediriger vers la même page pour éviter la soumission multiple si nécessaire
-    header('Location: ../controllers/controllers-admin.php');
+    header('Location: ../controllers/controller-admin.php');
     exit();
   } catch (Exception $e) {
     error_log('Erreur lors de la suppression : ' . $e->getMessage());
@@ -48,7 +48,7 @@ try {
 }
 ?>
 
-<table class="table table-hover">
+<table class="table table-hover" style="min-height: 80%;">
   <thead class="table-dark">
     <tr>
       <th scope="col">#</th>
@@ -85,9 +85,11 @@ try {
 </table>
 
 
+
 <div class="center-button">
 
 
-<a href="../views/admin.php"><button type="button" class="btn btn-primary">Retour</button></a>
+<a href="../views/admin.php"><button type="button" class="btn-bleu">Retour</button></a>
+<a href="../views/form.php"><button type="button" class="btn-bleu2">Ajout</button></a>
 </div>
 <?php include "components/footer.php" ?>

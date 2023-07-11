@@ -1,4 +1,0 @@
-RewriteEngine On
-RewriteComd % {http_host}! ^ Www \ .
-RewriteRule ^ (. *) $ Http://www.% {HTTP_HOST} / $ 1 [R = 301, L] 
- 
