@@ -3,17 +3,17 @@
 
 
 
-<main class="admin">
-
-
+<main>
 
     <h2>Bienvenue sur la page admin</h2>
 
     <p>Que voulez vous faire ?</p>
 
-    <a href="../controllers/controller-form.php"><button type="button" class="btn btn-primary">Ajouter un Animal</button></a>
-    <a href="../views/liste.php"><button type="button" class="btn btn-primary">Liste des Animaux</button></a>
+    <div class="button">
 
+    <a href="../controllers/controller-form.php"><button type="button" class="btn-bleu">Ajouter un Animal</button></a>
+    <a href="../views/liste.php"><button type="button" class="btn-bleu2">Liste des Animaux</button></a>
+    </div>
 
 
 

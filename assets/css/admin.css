@@ -1,7 +1,58 @@
 
-
-.admin{
+main{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
 }
+
+.button{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+button{
+    width: 200px;
+}
+
+.btn-bleu{
+    background-color: #FFF;
+    color: #000;
+    border: solid 1px #000;
+    border-radius: 5px;
+    padding: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.btn-bleu:hover{
+    background-color: #000;
+    color: #FFF;
+    transition: all.5s;
+}
+
+
+
+.btn-bleu2{
+    background-color: #000000;
+    color: #ffffff;
+    border: solid 1px #000000;
+    border-radius: 5px;
+    padding: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-bleu2:hover{
+    background-color: #ffffff;
+    color: #000000;
+    transition: all.5s;
+}
+
+.center-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+

@@ -74,7 +74,10 @@ try {
         <td><?= htmlspecialchars($animal['espece']); ?></td>
         <td><?= htmlspecialchars($animal['race']); ?></td>
         <td>
+        <a href="../controllers/controller-animal.php?id=<?php echo $animal ['id'] ?>"><button class="btn btn-success">+ Infos</button></a>
+        <button type="button" class="btn btn-warning">Modifier</button>
           <a href="?delete_id=<?= $animal['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?')""><button type=" button" class="btn btn-danger">Supprimer</button></a>
+          
         </td>
       </tr>
     <?php endforeach; ?>
@@ -82,6 +85,9 @@ try {
 </table>
 
 
+<div class="center-button">
 
-<a href="../views/home.php"><button type="button" class="btn btn-primary">Retour</button></a>
+
+<a href="../views/admin.php"><button type="button" class="btn btn-primary">Retour</button></a>
+</div>
 <?php include "components/footer.php" ?>

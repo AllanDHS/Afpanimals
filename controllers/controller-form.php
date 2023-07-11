@@ -92,7 +92,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    var_dump($errors);
+    // Vérification de l'input titre
+
+    if (isset($_POST['titre'])) {
+        $titre = $_POST['titre'];
+
+        // verification si c vide
+        if (empty($titre)) {
+            $errors['titre'] = 'Champs obligatoire';
+        }
+    }
+
+    // Vérification de l'input description
+
 
     // à la fin des verifs on check le tableau $errors
     if (count($errors) == 0) {
