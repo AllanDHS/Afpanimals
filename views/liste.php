@@ -74,9 +74,9 @@ try {
         <td><?= htmlspecialchars($animal['espece']); ?></td>
         <td><?= htmlspecialchars($animal['race']); ?></td>
         <td>
-        <a href="../controllers/controller-animal.php?id=<?php echo $animal ['id'] ?>"><button class="btn btn-success">+ Infos</button></a>
-        <button type="button" class="btn btn-warning">Modifier</button>
-          <a href="?delete_id=<?= $animal['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?')""><button type=" button" class="btn btn-danger">Supprimer</button></a>
+        <a href="../controllers/controller-animal.php?id=<?php echo $animal ['id'] ?>"><button class="btn-bleuListe">+ Infos</button></a>
+        <a href="../controllers/controller-uptade.php?id=<?php echo $animal ['id'] ?>"><button class="btn-bleuListe">Modifier</button></a>
+          <a href="?delete_id=<?= $animal['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?')""><button class="btn-bleuListe2">Supprimer</button></a>
           
         </td>
       </tr>
