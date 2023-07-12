@@ -4,48 +4,21 @@
 
 
 <?php
-try {
-  // On se connecte à MySQL
-  $bdd = new PDO('mysql:host=localhost;dbname=animals;charset=utf8', 'root', 'root');
-  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Activer le mode d'exception
-} catch (Exception $e) {
-  error_log('Erreur de connexion à la base de données : ' . $e->getMessage());
-  die('Une erreur est survenue, veuillez réessayer plus tard.');
-}
+
 
 // Vérifier si une demande de suppression a été soumise
+
+
 if (isset($_GET['delete_id'])) {
-  $deleteId = $_GET['delete_id'];
-
-  try {
-    // Effectuer la suppression dans la base de données
-    $deleteQuery = 'DELETE FROM animal WHERE id = :delete_id';
-    $deleteStatement = $bdd->prepare($deleteQuery);
-    $deleteStatement->bindParam(':delete_id', $deleteId, PDO::PARAM_INT);
-    $deleteStatement->execute();
-
-    // Rediriger vers la même page pour éviter la soumission multiple si nécessaire
+  $animal = new Animals();
+  if ($animal->deleteAnimalbyid($_GET['delete_id'])) {
     header('Location: ../controllers/controller-admin.php');
     exit();
-  } catch (Exception $e) {
-    error_log('Erreur lors de la suppression : ' . $e->getMessage());
-    die('Une erreur est survenue lors de la suppression.');
   }
 }
 
 // Récupération des données
-try {
-  $sqlQuery = 'SELECT animal.*, espece.nom AS espece, race.nom AS race
-                FROM animal
-                LEFT JOIN espece ON animal.e = espece.id_e
-                LEFT JOIN race ON animal.r = race.id';
-  $animalStatement = $bdd->prepare($sqlQuery);
-  $animalStatement->execute();
-  $animals = $animalStatement->fetchAll();
-} catch (Exception $e) {
-  error_log('Erreur lors de la récupération des données : ' . $e->getMessage());
-  die('Une erreur est survenue lors de la récupération des données.');
-}
+
 ?>
 
 <h3 class="text-center p-4 fs-2">Liste des animaux</h3>
@@ -60,12 +33,12 @@ try {
       <th scope="col">Pucé</th>
       <th scope="col">Sexe</th>
       <th scope="col">Espece</th>
-      <th scope="col">Race</th>     
+      <th scope="col">Race</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($animals as $animal) : ?>
+    <?php foreach (Animals::getAllAnimal() as $animal) : ?>
       <tr>
         <th scope="row"><?= $animal['id']; ?></th>
         <td><?= htmlspecialchars($animal['nom']); ?></td>
@@ -92,7 +65,7 @@ try {
 <div class="center-button">
 
 
-  <a href="../views/admin.php"><button type="button" class="btn-bleu">Retour</button></a>
-  <a href="../views/form.php"><button type="button" class="btn-bleu2">Ajout</button></a>
+  <a href="../controllers/controller-admin.php"><button  class="btn-bleu">Retour</button></a>
+  <a href="../controllers/controller-form.php"><button type="button" class="btn-bleu2">ajouter</button></a>
 </div>
 <?php include "components/footer.php" ?>

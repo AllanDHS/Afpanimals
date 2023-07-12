@@ -79,7 +79,7 @@ function countbreed($breed, $bdd)
     <div class="button">
 
         <a href="../controllers/controller-form.php"><button type="button" class="btn-bleu">Ajouter un Animal</button></a>
-        <a href="../views/liste.php"><button type="button" class="btn-bleu2">Liste des Animaux</button></a>
+        <a href="../controllers/controller-liste.php"><button type="button" class="btn-bleu2">Liste des Animaux</button></a>
     </div>
 </main class="admin">
 

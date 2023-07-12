@@ -3,37 +3,13 @@
 
 
 
-
-<?php
-try {
-    // On se connecte à MySQL
-    $mysqlClient = new PDO('mysql:host=localhost;dbname=animals;charset=utf8', 'root', 'root');
-} catch (Exception $e) {
-    // En cas d'erreur, on affiche un message et on arrête tout
-    die('Erreur : ' . $e->getMessage());
-}
-
-// Si tout va bien, on peut continuer
-
-// On récupère tout le contenu de la table animal
-$sqlQuery = 'SELECT animal.*, espece.nom AS espece, race.nom AS race
-FROM animal
-LEFT JOIN espece ON animal.e = espece.id_e
-LEFT JOIN race ON animal.r = race.id LIMIT 8';
-$animalStatement = $mysqlClient->prepare($sqlQuery);
-$animalStatement->execute();
-$animal = $animalStatement->fetchAll();
-
-// On affiche chaque recette une à une
-?>
 <h2 class="text-center p-4">Bienvenue sur Afpanimals</h2>
 <p class="text-center p-5 fs-5">À la recherche d'une nouvelle compagnie pleine de douceur et d'aventures ? Ne cherchez plus, notre adorable chenille d'adoption est prête à vous émerveiller avec ses couleurs chatoyantes et son caractère attachant. Préparez-vous à vivre une expérience unique en accueillant cette petite boule de bonheur dans votre foyer. Adoptez notre chenille et laissez-la tisser des liens d'amour et de complicité avec vous !</p>
 <div class="container-fluid m-5">
     <div class="row">
         <?php
-        foreach ($animal as $animals) {
+        foreach ( Animals::getAllAnimal() as $animals) {
         ?>
-
             <div class="col-md-3 ">
                 <div class="card" style="width: 18rem;">
                     <img src="<?php echo $animals['image'] ?>" class="card-img-top" alt="...">

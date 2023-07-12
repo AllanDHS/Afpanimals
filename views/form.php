@@ -110,8 +110,9 @@
                     <label for="image">Image:</label>
                     <input type="text" class="form-control" id="img" name="img">
                 </div>
-                <div class="center-button">
-                    <button type="submit" class="btn-bleu2">Soumettre</button>
+                <div class="d-flex justify-content-evenly mt-5">
+                    <button type="submit" class="btn-bleu2">Sauvegarder</button>
+                    <a href="../controllers/controller-home.php" class="btn-bleu text-center">Annuler</a>
                 </div>
             </form>
         </div>
