@@ -48,6 +48,8 @@ try {
 }
 ?>
 
+<h3 class="text-center p-4 fs-2">Liste des animaux</h3>
+
 <table class="table table-hover" style="min-height: 80%;">
   <thead class="table-dark">
     <tr>
@@ -58,8 +60,8 @@ try {
       <th scope="col">Pucé</th>
       <th scope="col">Sexe</th>
       <th scope="col">Espece</th>
-      <th scope="col">Race</th>
-      <th scope="col">Action</th>
+      <th scope="col">Race</th>     
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -74,10 +76,11 @@ try {
         <td><?= htmlspecialchars($animal['espece']); ?></td>
         <td><?= htmlspecialchars($animal['race']); ?></td>
         <td>
-        <a href="../controllers/controller-animal.php?id=<?php echo $animal ['id'] ?>"><button class="btn-bleuListe">+ Infos</button></a>
-        <a href="../controllers/controller-uptade.php?id=<?php echo $animal ['id'] ?>"><button class="btn-bleuListe">Modifier</button></a>
-          <a href="?delete_id=<?= $animal['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?')""><button class="btn-bleuListe2">Supprimer</button></a>
-          
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="../controllers/controller-animal.php?id=<?php echo $animal['id'] ?>"><button class="btn-bleuListe">+ Infos</button></a>
+            <a href="../controllers/controller-uptade.php?id=<?php echo $animal['id'] ?>"><button class="btn-bleuListe">Modifier</button></a>
+            <a href="?delete_id=<?= $animal['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet animal ?')""><button class=" btn-bleuListe2">Supprimer</button></a>
+          </div>
         </td>
       </tr>
     <?php endforeach; ?>
@@ -89,7 +92,7 @@ try {
 <div class="center-button">
 
 
-<a href="../views/admin.php"><button type="button" class="btn-bleu">Retour</button></a>
-<a href="../views/form.php"><button type="button" class="btn-bleu2">Ajout</button></a>
+  <a href="../views/admin.php"><button type="button" class="btn-bleu">Retour</button></a>
+  <a href="../views/form.php"><button type="button" class="btn-bleu2">Ajout</button></a>
 </div>
 <?php include "components/footer.php" ?>

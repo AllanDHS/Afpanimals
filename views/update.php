@@ -31,9 +31,6 @@ try {
 
 
 if (isset($_POST['id'])) {
-    echo "<pre>";
-    var_dump($_POST);
-    echo "</pre>";
     $updateId = $_POST['id'];
     $name = $_POST['name'];
     $couleur = $_POST['color'];
@@ -55,9 +52,6 @@ if (isset($_POST['id'])) {
 
 
         $uptadeStatement = $bdd->prepare($uptadeQuery);
-        echo "<pre>";
-        var_dump($updateId, $name, $tatoue, $puce, $couleur, $poids, $espece, $race, $date, $image, $sexe, $titre, $description);
-        echo "</pre>";
         $uptadeStatement->bindParam(':id', $updateId, PDO::PARAM_INT);
         $uptadeStatement->bindParam(':nom', $name, PDO::PARAM_STR);
         $uptadeStatement->bindParam(':tatoue', $tatoue, PDO::PARAM_INT);
@@ -71,13 +65,12 @@ if (isset($_POST['id'])) {
         $uptadeStatement->bindParam(':sexe', $sexe, PDO::PARAM_INT);
         $uptadeStatement->bindParam(':titre', $titre, PDO::PARAM_STR);
         $uptadeStatement->bindParam(':description', $description, PDO::PARAM_STR);
-        var_dump($uptadeStatement);
         $uptadeStatement->execute();
 
 
 
         // Rediriger vers la même page pour éviter la soumission multiple si nécessaire
-        // header('Location: ../controllers/controller-uptade.php');
+        header('Location: ../controllers/controller-liste.php');
         exit();
     } catch (Exception $e) {
         error_log('Erreur lors de la suppression : ' . $e->getMessage());
@@ -86,7 +79,6 @@ if (isset($_POST['id'])) {
 }
 
 ?>
-
 
 
 <div class="container">
@@ -121,13 +113,13 @@ if (isset($_POST['id'])) {
                     <div class="col">
                         <div class="form-group">
                             <label for="race">Race:</label>
-                            <select class="form-control" id="race" name="race">                               
-                                <option value="4"<?= $animals['race'] == 4 ? "selected" : "" ?>>Dog</option>
-                                <option value="3"<?= $animals['race'] == 3 ? "selected" : "" ?>>Caniche</option>
-                                <option value="2"<?= $animals['race'] == 2 ? "selected" : "" ?>>Berger Allemand</option>
-                                <option value="1"<?= $animals['race'] == 1 ? "selected" : "" ?>>Persan</option>
-                                <option value="5"<?= $animals['race'] == 5 ? "selected" : "" ?>>Siamois</option>
-                                <option value="6"<?= $animals['race'] == 6 ? "selected" : "" ?>>Bengal</option>
+                            <select class="form-control" id="race" name="race">
+                                <option value="4" <?= $animals['race'] == 4 ? "selected" : "" ?>>Dog</option>
+                                <option value="3" <?= $animals['race'] == 3 ? "selected" : "" ?>>Caniche</option>
+                                <option value="2" <?= $animals['race'] == 2 ? "selected" : "" ?>>Berger Allemand</option>
+                                <option value="1" <?= $animals['race'] == 1 ? "selected" : "" ?>>Persan</option>
+                                <option value="5" <?= $animals['race'] == 5 ? "selected" : "" ?>>Siamois</option>
+                                <option value="6" <?= $animals['race'] == 6 ? "selected" : "" ?>>Bengal</option>
                             </select>
                         </div>
                     </div>
@@ -200,7 +192,7 @@ if (isset($_POST['id'])) {
             </div>
             <div class="center-button">
                 <input type="hidden" name="id" value="<?= $animals['id'] ?>">
-                <a href="#"><button type="submit" class="btn-bleu2">Modifier</button></a>
+                <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir modifier cet animal ?')""><button type=" submit" class="btn-bleu2">Modifier</button></a>
             </div>
     </form>
 </div>

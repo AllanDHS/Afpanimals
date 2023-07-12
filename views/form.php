@@ -118,7 +118,7 @@
         </div>
     <?php } else { ?>
         <h1>L'animal a bien été enregistrer dans la base de donnée</h1>
-        <a href="../views/admin.php"><button>Retour</button></a>
+        <a href="../views/admin.php"><button class="btn-bleu">Retour</button></a>
         <div>
             <?php
             try {

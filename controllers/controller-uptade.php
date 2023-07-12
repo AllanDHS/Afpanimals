@@ -1,4 +1,4 @@
 <?php
 
-include "../views/uptade.php";
+include "../views/update.php";
 ?>
